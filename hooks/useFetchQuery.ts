@@ -1,12 +1,43 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 const endpoint = "https://pokeapi.co/api/v2/"
+import { Colors } from "@/app/constants/Colors";
 
-export function useFetchQuery(path: string) {
+
+type API = {
+    "/pokemon/[id]": {
+      moves: { move: { name: string } }[];
+      stats: {
+        base_stat: number;
+        stat: {
+          name: string;
+        };
+      }[];
+      cries: {
+        latest: string;
+      };
+      types: {
+        type: {
+          name: keyof (typeof Colors)["type"];
+        };
+      }[];
+    };
+  
+    "/pokemon-species/[id]": {
+      flavor_text_entries: {
+        flavor_text: string;
+      }[];
+    };
+  };
+  
+
+export function useFetchQuery(path: string, params?: Record<string, string | number>) {
+
+    const localUrl = endpoint + Object.entries(params ?? {}).reduce((acc, [key, value]) => acc.replaceAll(`[${key}]`, String(value)), path);
     return useQuery({
-        queryKey: [path],
+        queryKey: [localUrl],
         queryFn: async () => {
             await wait(1)
-            return fetch(endpoint + path).then(r => r.json())
+            return fetch(localUrl).then(r => r.json())
             //Lien + le chemin est renvoie une reponse en format json
         }
     })

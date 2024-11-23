@@ -9,6 +9,7 @@ import { Card } from "../Card";
 import { ThemdText } from "../ThemdText";
 import { UseThemeColors } from "@/hooks/UseThemeColors";
 import { Link } from "expo-router";
+import { getPokemonArtwork } from "@/app/functions/pokemon";
 
 type Props = {
   style?: ViewStyle;
@@ -32,7 +33,7 @@ export function PokemonCard({ style, id, name }: Props) {
           {/* padStart() permet de rajouter des 0 au debut de l id */}
           <Image
             source={{
-              uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
+              uri: getPokemonArtwork(id),
             }}
             width={72}
             height={72}

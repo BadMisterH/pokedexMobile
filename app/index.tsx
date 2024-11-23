@@ -13,11 +13,9 @@ import { useState } from "react";
 import { Row } from "./components/Row";
 import { SearchBar } from "./components/SearchBar";
 import { SortButton } from "./components/SortButton";
+import { RootView } from "./components/RootView";
 
-interface PokemonResult {
-  name: string;
-  url: string;
-}
+
 
 export default function Index() {
   const colors = UseThemeColors();
@@ -47,9 +45,7 @@ export default function Index() {
 
   return (
     <GestureHandlerRootView>
-      <SafeAreaView
-        style={[styles.container, { backgroundColor: colors.tint }]}
-      >
+      <RootView>
         <Row style={styles.header} gap={16}>
           <Image
             source={require("@/assets/images/Pokeball.png")}
@@ -87,16 +83,16 @@ export default function Index() {
             keyExtractor={(item) => item.id.toString()}
           />
         </Card>
-      </SafeAreaView>
+      </RootView>
     </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 4 },
   header: {
     paddingHorizontal: 12,
-    paddingBottom : 8
+    paddingBottom : 8,
+    paddingVertical : 8
   },
   body: {
     flex: 1,

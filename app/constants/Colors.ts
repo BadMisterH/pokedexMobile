@@ -10,8 +10,10 @@ type ThemeColors = {
 
 type TypeColors = {
   bug: string;
+  water : string,
   dark: string;
   dragon: string;
+  poison: string;
   electric: string;
   fairy: string;
   fighting: string;
@@ -47,8 +49,10 @@ export const Colors: ColorsType = {
   },
   type: {
     bug: "#A7B723",
+    water : "#0ebef8",
     dark: "#75574C",
     dragon: "#7037FF",
+    poison : "#6a47c4",
     electric: "#F9CF30",
     fairy: "#E69EAC",
     fighting: "#C12239",
