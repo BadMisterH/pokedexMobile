@@ -22,6 +22,8 @@ type TypeColors = {
   ghost: string;
   normal: string;
   grass: string;
+  ground : string;
+  ice : string
 };
 
 type ColorsType = {
@@ -61,6 +63,8 @@ export const Colors: ColorsType = {
     ghost: "#70559B",
     normal: "#AAA67F",
     grass: "#74CB48",
+    ground : "#b98e00",
+    ice : "#00f7ff"
   },
 };
 

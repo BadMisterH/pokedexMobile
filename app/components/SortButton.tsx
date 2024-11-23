@@ -67,7 +67,6 @@ export function SortButton({ value, onChange }: Props) {
             <Card style={styles.card}>
                 {options.map(o => 
                 <Pressable key={o.value} onPress={() => onChange(o.value)}>
-                
                 <Row key={o.value} gap={8}>
                     <Radio checked={o.value === value} />
                     <ThemdText>{o.label}</ThemdText>

@@ -6,7 +6,7 @@ type Props = ViewProps
 
 export function Card ({style, ...reset}: Props) {
     const colors = UseThemeColors()
-    return <View style={[style, styles, {backgroundColor: colors.grayWhite}]} {...reset} />
+    return <View style={[styles, {backgroundColor: colors.grayWhite}, style]} {...reset} />
 }
 
 const styles = {

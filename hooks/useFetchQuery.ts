@@ -36,7 +36,6 @@ export function useFetchQuery(path: string, params?: Record<string, string | num
     return useQuery({
         queryKey: [localUrl],
         queryFn: async () => {
-            await wait(1)
             return fetch(localUrl).then(r => r.json())
             //Lien + le chemin est renvoie une reponse en format json
         }
@@ -49,7 +48,6 @@ export function useInfinteFetchQuery (path: string) {
         queryKey: [path],
         initialPageParam: endpoint + path,
         queryFn: async ({pageParam}) => {
-            await wait(1)
             return fetch(pageParam, {
                 headers : {
                     Accept : "application/json"
